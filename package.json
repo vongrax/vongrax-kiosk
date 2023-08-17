@@ -1,0 +1,59 @@
+{
+  "name": "vongrax-kiosk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "electron/main.js",
+  "homepage": "https://vongrax-kiosk",
+  "author": {
+    "name": "Author Name",
+    "email": "author@email.com"
+  },
+  "scripts": {
+    "build": "webpack",
+    "start": "electron .",
+    "dev": "npm run build && electron ./electron/main.js",
+    "lint": "eslint src/",
+    "prettier": "prettier --check src/",
+    "prettier:fix": "prettier --write src/",
+    "prepare": "husky install",
+    "build:win": "rm -rf electron && rm -rf out && npm run build && npx electron-builder --win",
+    "build:linux": "rm -rf electron && rm -rf out && npm run build && npx electron-builder --linux deb tar.xz"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "electron": "26.0.0",
+    "electron-builder": "^24.6.3",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.28.0",
+    "husky": "^8.0.0",
+    "prettier": "^3.0.2",
+    "ts-loader": "^9.2.5",
+    "typescript": "^5.1.6",
+    "webpack": "^5.52.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "app-root-path": "^3.0.0",
+    "inversify": "^6.0.1",
+    "reflect-metadata": "^0.1.13"
+  },
+
+  "build": {
+    "appId": "vongrax-kiosk",
+    "extends": null,
+    "productName": "vongrax-kiosk",
+    "asar": true,
+    "directories": {
+      "buildResources": "./src",
+      "output": "out"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}

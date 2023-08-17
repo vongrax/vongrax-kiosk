@@ -1,0 +1,8 @@
+.env
+node_modules/
+.husky
+dist/
+build/
+.idea
+electron/
+out/
